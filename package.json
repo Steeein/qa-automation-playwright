@@ -1,0 +1,19 @@
+{
+  "name": "qa-despensalo-automatizacion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Suite de pruebas automatizadas E2E sobre despensalo.cl - Evaluacion U3 Testing Aplicado al Desarrollo de Sistemas (IF203)",
+  "scripts": {
+    "test": "playwright test",
+    "test:repetible": "playwright test --repeat-each=3",
+    "test:escritorio": "playwright test --project=escritorio-1366x768 --repeat-each=3",
+    "test:movil": "playwright test --project=movil-pixel5-393x851 --repeat-each=3",
+    "test:headed": "playwright test --headed",
+    "reporte": "playwright show-report reportes/html",
+    "limpieza": "playwright test --config=playwright.limpieza.config.js --project=escritorio-1366x768"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "dotenv": "^16.4.5"
+  }
+}

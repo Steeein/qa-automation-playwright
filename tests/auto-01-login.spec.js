@@ -9,12 +9,12 @@
  * ============================================================================
  *
  *  ¿Por qué este caso se eligió para automatizar?
- *  El Apunte 3 recomienda priorizar la automatización según "importancia,
- *  riesgo y valor comercial". El ingreso cumple los tres criterios:
+ *  Se priorizó por importancia, riesgo y valor de negocio. El ingreso cumple
+ *  los tres criterios:
  *   - Es la precondición de TODOS los demás flujos: si se rompe, el 100 % de la
  *     aplicación queda inaccesible (riesgo máximo).
  *   - Es perfectamente repetible y determinista, es decir, técnicamente apto
- *     para automatización (Fase 4, punto 1 de la evaluación).
+ *     para automatización.
  *   - Se ejecuta en cada regresión, así que el ahorro acumulado es alto.
  */
 

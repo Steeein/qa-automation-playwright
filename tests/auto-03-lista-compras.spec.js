@@ -16,7 +16,7 @@
  *     prueba de integración funcional y detectaría regresiones cruzadas.
  *   - Es determinista y repetible.
  *
- *  Reutilización (indicador 6.1): este spec no define ni un solo selector
+ *  Reutilización: este spec no define ni un solo selector
  *  propio; se apoya íntegramente en las funciones del módulo de fixtures y en
  *  los datos parametrizados del archivo JSON.
  */

@@ -1,5 +1,5 @@
 {
-  "_comentario": "Datos de prueba parametrizados. Separarlos del codigo permite ampliar la cobertura agregando filas a este archivo, sin tocar los specs (indicador 6.1: dato parametrizado). Todos los nombres llevan el sufijo QA para poder identificarlos y eliminarlos.",
+  "_comentario": "Datos de prueba parametrizados. Separarlos del codigo permite ampliar la cobertura agregando filas a este archivo, sin tocar los specs. Todos los nombres llevan el sufijo QA para poder identificarlos y eliminarlos.",
 
   "registro": [
     {

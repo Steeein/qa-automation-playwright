@@ -13,7 +13,7 @@ aplicación**, sino a errores de la propia suite.
 | 5.ª | **100 % (36/36)** | — | — |
 
 Ninguno de los cinco fallos acumulados correspondió a un defecto del software bajo prueba.
-Los seis defectos del informe salieron íntegramente de la ejecución manual y exploratoria.
+Los seis defectos reportados salieron íntegramente de la ejecución manual y exploratoria.
 
 ## Cómo se distingue un falso positivo de un defecto real
 
@@ -40,10 +40,10 @@ anotado como línea de trabajo futura en lugar de archivado.
 
 ## Un quinto defecto que ninguna prueba detectó
 
-Al revisar la captura del reporte HTML **antes de entregarla**, se descubrió que Playwright
+Al revisar la captura del reporte HTML **antes de archivarla**, se descubrió que Playwright
 registra el valor de cada `fill` en el título del paso. El reporte mostraba literalmente la
 contraseña de la cuenta de prueba dentro del propio documento de evidencia — en
-contradicción directa con las restricciones que el informe declaraba cumplir.
+contradicción directa con los resguardos declarados para la campaña.
 
 Se corrigió el arnés para que el campo de contraseña se rellene sin registrar su valor, y
 se regeneró el reporte.

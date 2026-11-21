@@ -4,7 +4,7 @@
  *
  * Por qué existe un segundo archivo de configuración:
  * la configuración principal excluye ese script con `testIgnore`, para que sus
- * ejecuciones no se sumen al recuento de las 36 corridas del indicador 6.2.
+ * ejecuciones no se sumen al recuento de las 36 corridas de la suite.
  * Pero `testIgnore` se aplica también cuando el archivo se nombra de forma
  * explícita en la línea de comandos, de modo que sin este segundo archivo la
  * limpieza sería imposible de ejecutar ("Error: No tests found").

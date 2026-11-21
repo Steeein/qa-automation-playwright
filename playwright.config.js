@@ -1,21 +1,21 @@
 // @ts-check
 /**
- * Configuración de Playwright — Evaluación U3, despensalo.cl
+ * Configuración de Playwright — suite E2E de despensalo.cl
  *
- * Decisiones técnicas relevantes para la rúbrica (indicador 6.2):
+ * Decisiones técnicas:
  *
  *  1) DOS ENTORNOS DE EJECUCIÓN. Se definen dos "projects" que ejecutan la misma
  *     suite en dos resoluciones distintas: escritorio 1366x768 y móvil Pixel 5
- *     (393x851). La rúbrica admite explícitamente "dos navegadores o dos
- *     resoluciones"; se eligieron dos resoluciones sobre el mismo motor porque
- *     (a) solo requiere descargar Chromium, lo que reduce el riesgo de que la
- *     suite no corra en el equipo del evaluador, y (b) el caso de uso real de la
+ *     (393x851). Se eligieron dos resoluciones sobre el mismo motor, en vez de
+ *     dos navegadores, porque (a) solo requiere descargar Chromium, lo que
+ *     reduce el riesgo de que la suite no corra en una máquina nueva, y
+ *     (b) el caso de uso real de la
  *     aplicación es móvil (revisar la despensa antes de ir al supermercado),
  *     hallazgo levantado en la sesión exploratoria SE-03.
  *
  *  2) SIN REINTENTOS (retries: 0). Un reintento automático enmascararía la
- *     inestabilidad, y justamente lo que el indicador 6.2 mide es la
- *     CONSISTENCIA de los resultados entre ejecuciones. Queremos que un fallo
+ *     inestabilidad, y lo que interesa medir es justamente la CONSISTENCIA
+ *     de los resultados entre ejecuciones. Queremos que un fallo
  *     intermitente se vea en el reporte, no que se oculte.
  *
  *  3) EJECUCIÓN SECUENCIAL (workers: 1, fullyParallel: false). Las tres pruebas
@@ -24,8 +24,8 @@
  *     al software bajo prueba, sino al diseño de la suite.
  *
  *  4) EVIDENCIA AUTOMÁTICA. screenshot: 'on' guarda una captura de cada prueba
- *     (evidencia exigida por los indicadores 6.1 y 6.2); el video y la traza se
- *     conservan solo ante fallo para no inflar la carpeta de resultados.
+ *     como respaldo del resultado; el video y la traza se conservan solo ante
+ *     fallo para no inflar la carpeta de resultados.
  */
 
 require('dotenv').config();
@@ -36,8 +36,8 @@ module.exports = defineConfig({
 
   // El script de limpieza es un utilitario de mantenimiento, no una prueba de
   // regresión: se excluye de las corridas normales para que no contamine el
-  // recuento de ejecuciones del indicador 6.2. Se invoca a mano cuando hace
-  // falta dejar la cuenta en un estado conocido:
+  // recuento de ejecuciones. Se invoca a mano cuando hace falta dejar la
+  // cuenta en un estado conocido:
   //   npx playwright test tests/limpieza.spec.js --project=escritorio-1366x768
   testIgnore: '**/limpieza.spec.js',
 
@@ -53,8 +53,8 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,
 
   // Tres reporteros: 'list' para la consola, 'html' para la evidencia visual
-  // que se adjunta al informe, y 'json' para extraer las métricas del
-  // indicador 6.3 sin transcribirlas a mano.
+  // con captura por prueba, y 'json' para extraer las métricas de ejecución
+  // sin transcribirlas a mano.
   reporter: [
     ['list'],
     ['html', { outputFolder: 'reportes/html', open: 'never' }],

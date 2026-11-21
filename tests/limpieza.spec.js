@@ -8,10 +8,10 @@
  *  que deja la cuenta en un estado conocido antes o después de una campaña.
  *
  *  Por qué existe:
- *   - El Apunte 3 incluye la "gestión de la configuración" entre los protocolos
- *     estándar: el entorno debe quedar en un estado conocido y repetible.
+ *   - Gestión de la configuración: el entorno debe quedar en un estado
+ *     conocido y repetible entre campañas.
  *   - Las pruebas se ejecutan sobre un entorno productivo real: la suite no
- *     debe dejar residuos en la cuenta del socio formador.
+ *     debe dejar residuos en la cuenta del cliente.
  *   - Los datos de borde creados durante el testing exploratorio (un stock de
  *     999.999 unidades y otro de 2,5) contaminan el KPI "Unidades" y romperían
  *     las aserciones aritméticas de AUTO-02, produciendo fallos que no

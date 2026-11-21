@@ -2,7 +2,7 @@
   "name": "qa-despensalo-automatizacion",
   "version": "1.0.0",
   "private": true,
-  "description": "Suite de pruebas automatizadas E2E sobre despensalo.cl - Evaluacion U3 Testing Aplicado al Desarrollo de Sistemas (IF203)",
+  "description": "Framework de automatizacion E2E con Playwright: fixtures reutilizables, datos parametrizados y ejecucion de la misma suite en dos resoluciones",
   "scripts": {
     "test": "playwright test",
     "test:repetible": "playwright test --repeat-each=3",

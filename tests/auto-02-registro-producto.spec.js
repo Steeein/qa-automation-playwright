@@ -9,12 +9,12 @@
  *   - Es la operación NÚCLEO del producto: todos los demás módulos (indicadores,
  *     lista de compras, gastos, botiquín) consumen los datos que este flujo crea.
  *   - Es un caso REPETITIVO: se ejecuta con distintos datos una y otra vez, que
- *     es exactamente el escenario donde la automatización rinde según el
- *     Apunte 3 ("ejecutar pruebas repetitivas de manera rápida y precisa").
+ *     es exactamente el escenario donde la automatización rinde: ejecutar
+ *     pruebas repetitivas de forma rápida y precisa.
  *   - Es ESTABLE: no depende de hardware (a diferencia de la cámara o el OCR de
  *     boletas, deliberadamente excluidos del alcance de automatización).
  *
- *  Parametrización (indicador 6.1): el conjunto de productos se lee desde
+ *  Parametrización: el conjunto de productos se lee desde
  *  tests/data/productos.json. Para ampliar la cobertura basta agregar una fila
  *  al JSON: no se toca este archivo.
  */
@@ -42,7 +42,7 @@ test.describe('AUTO-02 · Alta de productos en el inventario', () => {
 
       // Limpieza previa: garantiza que la prueba parta siempre del mismo estado,
       // condición indispensable para que 3 ejecuciones consecutivas den el mismo
-      // resultado (indicador 6.2).
+      // resultado.
       await eliminarProducto(page, producto.nombre);
 
       const productosAntes = await leerKpi(page, 'kProducts');

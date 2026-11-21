@@ -9,13 +9,11 @@
  *  selectores propios.
  *
  *  Por qué está separado (patrón Page Object / helpers):
- *   - Reutilización: es el requisito explícito del nivel máximo del indicador
- *     6.1 ("al menos 1 de los scripts reutiliza una función, comando o dato
- *     parametrizado"). Aquí los TRES lo hacen.
- *   - Mantenibilidad: el Apunte 3 señala el "mantenimiento de scripts de
- *     prueba" como una de las tareas críticas de la automatización. Si el
- *     desarrollador cambia el identificador de un botón, se corrige en UN solo
- *     lugar y no en tres archivos.
+ *   - Reutilización: los tres specs se apoyan en estas funciones y en datos
+ *     parametrizados, en lugar de repetir selectores propios.
+ *   - Mantenibilidad: mantener los scripts es lo que más cuesta en una suite
+ *     automatizada. Si el desarrollador cambia el identificador de un botón,
+ *     se corrige en UN solo lugar y no en tres archivos.
  *   - Legibilidad: los specs quedan escritos en lenguaje de negocio
  *     (crearProducto, irAPestana) y no en lenguaje de DOM.
  *
@@ -92,12 +90,11 @@ async function iniciarSesion(page, credenciales = {}) {
   // La contraseña NO se escribe con fill().
   //
   // Motivo: Playwright registra el valor de cada `fill` en el título del paso, y
-  // ese título aparece tal cual en el reporte HTML que se entrega como evidencia.
+  // ese título aparece tal cual en el reporte HTML que queda como evidencia.
   // Con `fill(password)` el reporte mostraba literalmente
   //     Fill "<contraseña>" locator('#loginPassword')
-  // lo que contradice la restricción de la evaluación —y lo que el propio informe
-  // declara en su sección 2.4— de que las credenciales no aparecen en ninguna
-  // evidencia. Detectado al revisar la captura del reporte antes de entregarla.
+  // es decir, filtraba la contraseña de la cuenta de prueba dentro del propio
+  // documento de evidencia. Detectado al revisar la captura del reporte.
   //
   // `evaluate` registra el paso como "Evaluate", sin el argumento. Se disparan
   // los eventos input y change a mano porque asignar `value` por JavaScript no
@@ -122,7 +119,7 @@ async function iniciarSesion(page, credenciales = {}) {
  * Usa ":visible" porque la app tiene dos barras de navegación (superior en
  * escritorio, inferior en móvil) y solo una está visible según la resolución:
  * esto es lo que permite que la MISMA función sirva en los dos entornos de
- * ejecución configurados (indicador 6.2).
+ * ejecución configurados.
  *
  * @param {import('@playwright/test').Page} page
  * @param {keyof typeof SECCIONES} nombreSeccion
@@ -225,8 +222,8 @@ async function crearProducto(page, datos) {
 /**
  * Elimina del inventario todos los productos cuyo nombre coincida.
  * Se usa como limpieza previa y posterior: garantiza que cada ejecución parta
- * del mismo estado y que la suite sea REPETIBLE, que es lo que mide el
- * indicador 6.2 al pedir 3 ejecuciones consecutivas consistentes.
+ * del mismo estado y que la suite sea REPETIBLE, condición para que 3
+ * ejecuciones consecutivas den el mismo resultado.
  *
  * La eliminación dispara un confirm() nativo, por eso se registra un manejador
  * de diálogo justo antes de cada clic.

@@ -5,15 +5,14 @@ de scripts sueltos. Salió de una campaña de QA completa sobre una aplicación 
 producción: 12 casos de prueba manuales, 3 sesiones de testing exploratorio y una suite
 automatizada ejecutada 36 veces en dos resoluciones distintas.
 
-Este repositorio publica **el framework y el método**. El informe de defectos del producto
-evaluado no se publica aquí por discreción hacia el socio formador del proyecto; está
-disponible a solicitud.
+Este repositorio publica **el framework y el método**. El informe de defectos no se
+publica aquí por confidencialidad con el cliente; está disponible a solicitud.
 
 ---
 
 ## La campaña en números
 
-| Indicador | Valor |
+| Métrica | Valor |
 |---|---|
 | Casos de prueba diseñados y ejecutados | 12 / 12 |
 | Tasa de éxito manual | 66,7 % |
@@ -98,7 +97,7 @@ cp .env.example .env     # completar con una cuenta de prueba propia
 | Comando | Qué hace |
 |---|---|
 | `npm test` | Ejecuta la suite una vez en los dos entornos |
-| `npm run test:repetible` | 3 repeticiones por prueba y entorno — las 36 ejecuciones del informe |
+| `npm run test:repetible` | 3 repeticiones por prueba y entorno — las 36 ejecuciones de la campaña |
 | `npm run test:escritorio` | Solo escritorio 1366×768, 3 repeticiones |
 | `npm run test:movil` | Solo móvil Pixel 5, 3 repeticiones |
 | `npm run test:headed` | Con navegador visible, para depurar |
@@ -116,16 +115,12 @@ cp .env.example .env     # completar con una cuenta de prueba propia
 
 ---
 
-## Contexto
+## Alcance y resguardos
 
-Trabajo realizado para la asignatura *Testing Aplicado al Desarrollo de Sistemas*
-(Ingeniería en Informática, Instituto Profesional San Sebastián, 2026), sobre una
-aplicación web en producción facilitada como socio formador.
-
-La evaluación se acotó deliberadamente por tratarse de un entorno productivo con usuarios
-reales: sin pruebas de carga o estrés, sin escaneo de vulnerabilidades, sin accesos no
-autorizados, sin generación masiva de solicitudes y sin confirmar ninguna operación que
-pudiera derivar en una compra o un pago real. Toda la evidencia se revisó para eliminar
-credenciales antes de incorporarla al informe.
+La suite corre contra una aplicación web **en producción, con usuarios reales**, y el
+alcance se acotó deliberadamente por eso: sin pruebas de carga o estrés, sin escaneo de
+vulnerabilidades, sin accesos no autorizados, sin generación masiva de solicitudes y sin
+confirmar ninguna operación que pudiera derivar en una compra o un pago real. Toda la
+evidencia se revisó para eliminar credenciales antes de archivarla.
 
 **Diego Abaroa** · [github.com/Steeein](https://github.com/Steeein)
